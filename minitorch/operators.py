@@ -13,22 +13,76 @@ from typing import Callable, Iterable
 def mul(x: float, y: float) -> float:
     """$f(x, y) = x * y$"""
     return x * y
+
 # TODO fill in the remaining mathematical operators. Use mul provided above as an example.
+# used this page as reference: https://minitorch.github.io/module0/module0/#task-01-operators
 # - id
+def id(x: float) -> float:
+    """$f(x) = x$"""
+    return x
+
 # - add
+def add(x: float, y: float) -> float:
+    """$f(x, y) = x + y$"""
+    return x + y
+
 # - neg
+def neg(x: float) -> float:
+    """$f(x) = -1 * x$"""
+    return -1 * x
+
 # - lt
+def lt(x: float, y: float) -> bool:
+    """$f(x, y) = x < y$"""
+    return x < y
+
 # - eq
+def eq(x: float, y: float) -> bool:
+    """$f(x, y) = x == y$"""
+    return x == y
+
 # - max
+def max(x: float, y: float) -> float:
+    """$f(x, y) = max(x, y)"""
+    return max(x, y)
+
 # - is_close
+def is_close(x: float, y: float) -> bool:
+    """$f(x, y) = |x - y| < 1e-2$"""
+    return abs(x - y) < math.e - 2
+    
 # - sigmoid
+def sigmoid():
+    pass
+
 # - relu
+def relu():
+    pass
+
 # - log
+def log():
+    pass
+
 # - exp
+def exp():
+    pass
+
 # - log_back
+def log_back():
+    pass
+
 # - inv
+def inv():
+    pass
+
 # - inv_back
+def inv_back():
+    pass
+
 # - relu_back
+def relu_back():
+    pass
+
 #
 # For sigmoid calculate as:
 # $f(x) =  \frac{1.0}{(1.0 + e^{-x})}$ if x >=0 else $\frac{e^x}{(1.0 + e^{x})}$
