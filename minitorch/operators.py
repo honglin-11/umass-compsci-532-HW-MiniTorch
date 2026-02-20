@@ -43,8 +43,8 @@ def eq(x: float, y: float) -> bool:
 
 # - max
 def max(x: float, y: float) -> float:
-    """$f(x, y) = max(x, y)"""
-    return max(x, y)
+    """$f(x, y) = x if x > y else y$"""
+    return y if lt(x, y) else x
 
 # - is_close
 def is_close(x: float, y: float) -> bool:
@@ -52,28 +52,33 @@ def is_close(x: float, y: float) -> bool:
     return abs(x - y) < math.e - 2
     
 # - sigmoid
-def sigmoid():
-    pass
+def sigmoid(x: float) -> float:
+    """$f(x) =  \frac{1.0}{(1.0 + e^{-x})}$ if x >=0 else $\frac{e^x}{(1.0 + e^{x})}$"""
+    return 1 / (1 - math.e ** neg(x)) if x >= 0 else (math.e ** x) / (1 + math.e ** x)
 
 # - relu
-def relu():
-    pass
+def relu(x: float) -> float:
+    """$f(x) = max(x, 0)$"""
+    return max(x, 0)
 
 # - log
-def log():
-    pass
+def log(x: float) -> float:
+    """$f(x) = ln(x)$"""
+    return math.log(x)
 
 # - exp
-def exp():
-    pass
+def exp(x: float) -> float:
+    """$f(x) = math.exp(x)$"""
+    return math.exp(x)
 
 # - log_back
 def log_back():
     pass
 
 # - inv
-def inv():
-    pass
+def inv(x: float) -> float:
+    """$f(x) = 1 / x"""
+    return 1 / x
 
 # - inv_back
 def inv_back():
