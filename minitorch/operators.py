@@ -58,8 +58,8 @@ def sigmoid(x: float) -> float:
 
 # - relu
 def relu(x: float) -> float:
-    """$f(x) = max(x, 0)$"""
-    return max(x, 0)
+    """$f(x) = x if x > 0 else 0.0$"""
+    return x if x > 0 else 0.0
 
 # - log
 def log(x: float) -> float:
@@ -72,8 +72,9 @@ def exp(x: float) -> float:
     return math.exp(x)
 
 # - log_back
-def log_back():
-    pass
+def log_back(x: float, y: float) -> float:
+    """$f(x) = y / x"""
+    return y / x
 
 # - inv
 def inv(x: float) -> float:
@@ -81,22 +82,14 @@ def inv(x: float) -> float:
     return 1 / x
 
 # - inv_back
-def inv_back():
-    pass
+def inv_back(x: float, y: float) -> float:
+    """$f(x, y) = (-1 * y / x ^ 2)"""
+    return -1 * y / x ** 2
 
 # - relu_back
-def relu_back():
-    pass
-
-#
-# For sigmoid calculate as:
-# $f(x) =  \frac{1.0}{(1.0 + e^{-x})}$ if x >=0 else $\frac{e^x}{(1.0 + e^{x})}$
-# For is_close:
-# $f(x) = |x - y| < 1e-2$
-
-
-# TODO: Implement for Task 0.1.
-
+def relu_back(x: float, y: float) -> float:
+    """$f(x, y) = y if x > 0 else 0.0"""
+    return y if x > 0 else 0.0
 
 # ## Task 0.3
 
@@ -104,14 +97,32 @@ def relu_back():
 
 # Implement the following core functions
 # - map
+def map():
+    pass
+
 # - zipWith
+def zipWith():
+    pass
+
 # - reduce
+def reduce():
+    pass
 #
 # Use these to implement
 # - negList : negate all elemnts in a list using map
-# - addLists : add corresponding elements from two lists using zipWith
-# - sum: sum all elements in a list using reduce
-# - prod: tcalculate the product of all elements in a list using reduce
+def negList():
+    pass
 
+# - addLists : add corresponding elements from two lists using zipWith
+def addLists():
+    pass
+
+# - sum: sum all elements in a list using reduce
+def sum():
+    pass
+
+# - prod: tcalculate the product of all elements in a list using reduce
+def prod():
+    pass
 
 # TODO: Implement for Task 0.3.
