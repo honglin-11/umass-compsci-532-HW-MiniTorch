@@ -3,7 +3,7 @@
 import math
 
 # ## Task 0.1
-from typing import Callable, Iterable
+from typing import Callable, Iterable, Any
 
 #
 # Implementation of a prelude of elementary functions.
@@ -96,33 +96,47 @@ def relu_back(x: float, y: float) -> float:
 # Small practice library of elementary higher-order functions.
 
 # Implement the following core functions
+# reference: https://minitorch.github.io/module0/module0/#task-03-functional-python
 # - map
-def map():
-    pass
+def map(func: Callable, iter: Iterable) -> Iterable:
+    """Higher-order function that applies a given function to each element of an iterable"""
+    for i in iter:
+        yield func(i)
 
 # - zipWith
-def zipWith():
-    pass
+def zipWith(func: Callable, iter1: Iterable, iter2: Iterable) -> Iterable:
+    """Higher-order function that combines elements from two iterables using a given function"""
+    for i1, i2 in zip(iter1, iter2):
+        yield(func(i1, i2))
 
 # - reduce
-def reduce():
-    pass
+def reduce(func: Callable, iter: Iterable, start: object = None) -> Any:
+    """Higher-order function that reduces an iterable to a single value using a given function"""
+    lst = list(iter)
+    result = start if lst else None
+    for l in lst:
+        result = func(result, l)
+    return result
 #
 # Use these to implement
 # - negList : negate all elemnts in a list using map
-def negList():
-    pass
+def negList(lst: list[float]) -> Iterable[float]:
+    """Negate all elements in a list using map"""
+    return map(neg, lst)
 
 # - addLists : add corresponding elements from two lists using zipWith
-def addLists():
-    pass
+def addLists(lst1: list[float], lst2: list[float]) -> Iterable[float]:
+    """Add corresponding elements from two lists using zipWith"""
+    return zipWith(add, lst1, lst2)
 
 # - sum: sum all elements in a list using reduce
-def sum():
-    pass
+def sum(lst: list[float]) -> float:
+    """Sum all elements in a list using reduce"""
+    return reduce(add, lst)
 
 # - prod: tcalculate the product of all elements in a list using reduce
-def prod():
-    pass
+def prod(lst: list[float]) -> float:
+    """Calculate the product of all elements in a list using reduce"""
+    return reduce(mul, lst)
 
 # TODO: Implement for Task 0.3.
