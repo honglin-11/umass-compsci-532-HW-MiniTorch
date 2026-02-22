@@ -112,10 +112,9 @@ def zipWith(func: Callable, iter1: Iterable, iter2: Iterable) -> Iterable:
 # - reduce
 def reduce(func: Callable, iter: Iterable, start: object = None) -> Any:
     """Higher-order function that reduces an iterable to a single value using a given function"""
-    lst = list(iter)
-    result = start if lst else None
-    for l in lst:
-        result = func(result, l)
+    result = start
+    for i in iter:
+        result = func(result, i)
     return result
 #
 # Use these to implement
@@ -132,11 +131,11 @@ def addLists(lst1: list[float], lst2: list[float]) -> Iterable[float]:
 # - sum: sum all elements in a list using reduce
 def sum(lst: list[float]) -> float:
     """Sum all elements in a list using reduce"""
-    return reduce(add, lst)
+    return reduce(add, lst, start=0.0)
 
 # - prod: tcalculate the product of all elements in a list using reduce
 def prod(lst: list[float]) -> float:
     """Calculate the product of all elements in a list using reduce"""
-    return reduce(mul, lst)
+    return reduce(mul, lst, start=1.0)
 
 # TODO: Implement for Task 0.3.
