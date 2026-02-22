@@ -54,7 +54,7 @@ def is_close(x: float, y: float) -> bool:
 # - sigmoid
 def sigmoid(x: float) -> float:
     """$f(x) =  \frac{1.0}{(1.0 + e^{-x})}$ if x >=0 else $\frac{e^x}{(1.0 + e^{x})}$"""
-    return 1 / (1 - math.e ** neg(x)) if x >= 0 else (math.e ** x) / (1 + math.e ** x)
+    return 1 / (1 + math.exp(-1 * x)) if x >= 0 else math.exp(x) / (1 + math.exp(x))
 
 # - relu
 def relu(x: float) -> float:
